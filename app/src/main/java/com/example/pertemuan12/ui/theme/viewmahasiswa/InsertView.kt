@@ -28,6 +28,7 @@ import com.example.pertemuan12.ui.theme.viewmodel.PenyediaViewModel
 import kotlinx.coroutines.launch
 import androidx.compose.ui.Modifier
 
+
 object DestinasiEntry:DestinasiNavigasi{
     override val route="item_entry"
     override val titleRes="Entry Mhs"
@@ -68,6 +69,32 @@ fun EntryMhsScreen(
                 .fillMaxWidth()
         )
 
+    }
+}
+
+@Composable
+fun EntryBody(
+    insertUiState: InsertUiState,
+    onSiswaValueChange:(InsertUiEvent)->Unit,
+    onSaveClick:()->Unit,
+    modifier: Modifier=Modifier
+){
+    Column(
+        verticalArrangement = Arrangement.spacedBy(18.dp),
+        modifier = modifier.padding(12.dp)
+    ){
+        FormInput(
+            insertUiEvent = insertUiState.insertUiEvent,
+            onValueChange = onSiswaValueChange,
+            modifier = Modifier.fillMaxWidth()
+        )
+        Button(
+            onClick = onSaveClick,
+            shape = MaterialTheme.shapes.small,
+            modifier = Modifier.fillMaxWidth()
+        ) {
+            Text(text = "Simpan")
+        }
     }
 }
 
