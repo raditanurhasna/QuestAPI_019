@@ -13,17 +13,20 @@ import com.example.pertemuan12.ui.theme.navigation.PengelolaHalaman
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun MahasiswaApp(){
-    var scrollBehavior = TopAppBarDefaults.enterAlwaysScrollBehavior()
-    Scaffold(
+fun MahasiswaApp(
+    modifier: Modifier = Modifier
+){
+    val scrollBehavior = TopAppBarDefaults.enterAlwaysScrollBehavior()
+    Scaffold (
         modifier = Modifier.nestedScroll(scrollBehavior.nestedScrollConnection),
-    ){
+        //topBar = { TopAppBar(scrollBehavior = scrollBehavior)}
+    ) {
         Surface(
             modifier = Modifier
                 .fillMaxSize()
                 .padding(it)
-        ){
-            PengelolaHalaman()
+        ) {
+            PengelolaHalaman(modifier = Modifier)
         }
     }
 }
